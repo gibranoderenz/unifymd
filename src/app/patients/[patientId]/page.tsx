@@ -139,24 +139,29 @@ export default function PatientDataPage({
         </div>
 
         <div className="relative flex flex-col gap-4 bg-[#F8F3FF] p-6 rounded-xl">
-          {!!patient &&
-            patient.records.map((r) => {
-              return (
-                <button
-                  className={`p-2 rounded-xl ${
-                    !!record && r.id === record.id
-                      ? "bg-[#381E72] hover:bg-[#381E72]/90 text-white"
-                      : "hover:bg-[#ede3fe]"
-                  }`}
-                  key={r.id}
-                  onClick={() => {
-                    _getPatientRecord(r.id);
-                  }}
-                >
-                  {!!r.createdAt && format(r.createdAt.toString(), "PP")}
-                </button>
-              );
-            })}
+          {!!patient ? (
+            patient.records.length === 0 ? (
+              <span>No records yet.</span>
+            ) : (
+              patient.records.map((r) => {
+                return (
+                  <button
+                    className={`p-2 rounded-xl ${
+                      !!record && r.id === record.id
+                        ? "bg-[#381E72] hover:bg-[#381E72]/90 text-white"
+                        : "hover:bg-[#ede3fe]"
+                    }`}
+                    key={r.id}
+                    onClick={() => {
+                      _getPatientRecord(r.id);
+                    }}
+                  >
+                    {!!r.createdAt && format(r.createdAt.toString(), "PP")}
+                  </button>
+                );
+              })
+            )
+          ) : null}
         </div>
         <Sheet>
           <SheetTrigger asChild>
