@@ -16,7 +16,7 @@ UnifyMD is a unified health record system that aggregates patient data and histo
 - **[Next.js](https://nextjs.org/)**: Used as the main framework for building the application, providing server-side rendering and full-stack capabilities.
 - **[Drizzle ORM](https://orm.drizzle.team/)**: An Object Relational Mapper used for seamless database interaction.
 - **[Supabase](https://supabase.com/)**: Used to store core patient data and records securely.
-- **[Shadcn UI](https://shadcn.dev/)**: For front-end components, providing an accessible and customizable UI.
+- **[Shadcn UI](https://ui.shadcn.com/)**: For front-end components, providing an accessible and customizable UI.
 - **[TailwindCSS](https://tailwindcss.com/)**: CSS framework used for fast, responsive front-end styling.
 
 ## Team Members
