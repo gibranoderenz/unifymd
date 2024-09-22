@@ -61,38 +61,11 @@ export default function PatientDataPage({
       })
     | null
   >(null);
-  const [messages, setMessages] = useState<
-    { id: number; content: string; sender: "user" | "ai" }[]
-  >([]);
-  const [currentMessage, setCurrentMessage] = useState("");
 
   const router = useRouter();
   const { loading } = useUser();
 
   const { patientId } = params;
-
-  const sendMessage = async () => {
-    setMessages((prev) => [
-      ...prev,
-      { id: prev.length + 1, content: currentMessage, sender: "user" },
-    ]);
-
-    try {
-      const response = await fetch("/api/bot", {
-        method: "POST",
-        body: JSON.stringify({ message: currentMessage }),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setMessages((prev) => [
-          ...prev,
-          { id: prev.length + 1, content: data.message.output, sender: "ai" },
-        ]);
-      }
-    } catch {
-      toast("An error occurred while asking UnifyMD. Try again.");
-    }
-  };
 
   useEffect(() => {
     const _getPatient = async () => {
