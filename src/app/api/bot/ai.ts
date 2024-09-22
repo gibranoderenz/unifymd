@@ -38,5 +38,7 @@ export const getAgentExecutor = async () => {
     tools: toolkit.getTools(),
   });
 
+  agentExecutor = executor;
+
   return executor;
 };

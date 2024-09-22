@@ -90,7 +90,7 @@ export default function PatientDataPage({
           { id: prev.length + 1, content: data.message.output, sender: "ai" },
         ]);
       }
-    } catch (err) {
+    } catch {
       toast("An error occurred while asking UnifyMD. Try again.");
     }
   };
@@ -117,7 +117,7 @@ export default function PatientDataPage({
         throw new Error();
       }
       setRecord(response.record!);
-    } catch (err) {
+    } catch {
       toast("An error occurred while getting patient record.");
     }
   };
