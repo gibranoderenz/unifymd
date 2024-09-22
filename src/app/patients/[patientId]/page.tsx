@@ -183,7 +183,7 @@ export default function PatientDataPage({
         </div>
         <Sheet>
           <SheetTrigger asChild>
-            <Button className="bg-[#381E72] rounded-xl sticky bottom-0">
+            <Button className="bg-[#381E72] hover:bg-[#381E72]/90 rounded-xl sticky bottom-0">
               Add New Record
             </Button>
           </SheetTrigger>
