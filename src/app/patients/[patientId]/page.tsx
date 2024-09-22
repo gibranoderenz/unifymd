@@ -168,8 +168,8 @@ export default function PatientDataPage({
                 <button
                   className={`p-2 rounded-xl ${
                     !!record && r.id === record.id
-                      ? "bg-[#381E72] text-white"
-                      : ""
+                      ? "bg-[#381E72] hover:bg-[#381E72]/90 text-white"
+                      : "hover:bg-[#ede3fe]"
                   }`}
                   key={r.id}
                   onClick={() => {
@@ -540,7 +540,7 @@ export default function PatientDataPage({
                     <span className="text-xl font-semibold">Symptoms</span>
                     <span>{record.symptoms}</span>
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-[#381E72]">
+                      <Badge className="bg-[#381E72] hover:bg-[#381E72]/90">
                         Time the symptoms started
                       </Badge>
                       <span className="text-sm">
@@ -548,7 +548,9 @@ export default function PatientDataPage({
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-[#381E72]">Symptom severity</Badge>
+                      <Badge className="bg-[#381E72] hover:bg-[#381E72]/90">
+                        Symptom severity
+                      </Badge>
                       <span className="text-sm">
                         {record.symptomSeverityDegree}
                       </span>
@@ -558,7 +560,7 @@ export default function PatientDataPage({
                   <div className="flex flex-col gap-2 bg-white p-4 rounded-xl">
                     <span className="text-xl font-semibold">Illness</span>
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-[#381E72]">
+                      <Badge className="bg-[#381E72] hover:bg-[#381E72]/90">
                         Major illness in the past year
                       </Badge>
                       <span className="text-sm">
@@ -566,7 +568,7 @@ export default function PatientDataPage({
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-[#381E72]">
+                      <Badge className="bg-[#381E72] hover:bg-[#381E72]/90">
                         History of illness in family
                       </Badge>
                       <span className="text-sm">
@@ -578,7 +580,7 @@ export default function PatientDataPage({
                   <div className="flex flex-col gap-2 bg-white p-4 rounded-xl">
                     <span className="text-xl font-semibold">Others</span>
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-[#381E72]">
+                      <Badge className="bg-[#381E72] hover:bg-[#381E72]/90">
                         Status of Military Service
                       </Badge>
                       <span className="text-sm">
@@ -586,7 +588,9 @@ export default function PatientDataPage({
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-[#381E72]">Sexual Activity</Badge>
+                      <Badge className="bg-[#381E72] hover:bg-[#381E72]/90">
+                        Sexual Activity
+                      </Badge>
                       <span className="text-sm">{record?.sexualActivity}</span>
                     </div>
                   </div>

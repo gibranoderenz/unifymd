@@ -20,7 +20,7 @@ export const NavbarUser: React.FC<{ user: User }> = ({ user }) => {
     return (
       <Popover>
         <PopoverTrigger asChild>
-          <button className="flex items-center justify-center gap-4 bg-[#381E72] text-white w-8 h-8 rounded-full font-semibold">
+          <button className="flex items-center justify-center gap-4 bg-[#381E72] hover:bg-[#381E72]/90 text-white w-8 h-8 rounded-full font-semibold">
             {user.firstName?.[0]}
           </button>
         </PopoverTrigger>
