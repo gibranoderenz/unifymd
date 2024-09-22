@@ -49,6 +49,7 @@ export default function PatientDataPage({
 }: {
   params: { patientId: string };
 }) {
+  const [isLoading, setIsLoading] = useState(false);
   const [patient, setPatient] = useState<
     | (InferSelectModel<typeof patients> & {
         records: { id: string; createdAt: Date | null }[];
@@ -84,6 +85,7 @@ export default function PatientDataPage({
 
   const _getPatientRecord = async (recordId: string) => {
     try {
+      setIsLoading(true);
       const response = await getPatientRecord(recordId);
       if (response.error) {
         throw new Error();
@@ -91,6 +93,8 @@ export default function PatientDataPage({
       setRecord(response.record!);
     } catch {
       toast("An error occurred while getting patient record.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -498,9 +502,11 @@ export default function PatientDataPage({
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 bg-[#F8F3FF] p-4 rounded-xl">
+        <div className="flex flex-col gap-4 bg-[#F8F3FF] p-4 rounded-xl h-full">
           {!record ? (
             <span>Select a record to view its details.</span>
+          ) : isLoading ? (
+            <span>Loading...</span>
           ) : (
             <div className="flex flex-col gap-4">
               <span className="text-xl font-bold text-[#381E72]">
