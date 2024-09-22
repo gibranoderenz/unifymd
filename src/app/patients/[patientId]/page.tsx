@@ -164,16 +164,20 @@ export default function PatientDataPage({
 
         <div className="flex flex-col gap-4 bg-[#F8F3FF] p-6 rounded-xl">
           {!!patient &&
-            patient.records.map((record) => {
+            patient.records.map((r) => {
               return (
                 <button
-                  key={record.id}
+                  className={`p-2 rounded-xl ${
+                    !!record && r.id === record.id
+                      ? "bg-[#381E72] text-white"
+                      : ""
+                  }`}
+                  key={r.id}
                   onClick={() => {
-                    _getPatientRecord(record.id);
+                    _getPatientRecord(r.id);
                   }}
                 >
-                  {!!record.createdAt &&
-                    format(record.createdAt.toString(), "PP")}
+                  {!!r.createdAt && format(r.createdAt.toString(), "PP")}
                 </button>
               );
             })}
