@@ -84,10 +84,16 @@ export const patientColumns: ColumnDef<PatientRow>[] = [
             </DropdownMenuItem>
             <DropdownMenuItem
               className="text-red-700"
-              onClick={() => {
-                deletePatient(patient.id);
-                toast("Patient successfully deleted.");
-                window.location.reload();
+              onClick={async () => {
+                const response = await deletePatient(patient.id);
+                if (response.success) {
+                  toast("Patient successfully deleted.");
+                  window.location.reload();
+                } else {
+                  toast(
+                    "An error occurred while deleting data. Please try again."
+                  );
+                }
               }}
             >
               Delete Patient
