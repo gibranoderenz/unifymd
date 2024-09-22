@@ -245,7 +245,7 @@ export default function PatientDataPage({
                     name="initialSymptomTime"
                     render={({ field }) => (
                       <FormItem className="flex flex-col">
-                        <FormLabel>Date of birth</FormLabel>
+                        <FormLabel>Initial symptom time</FormLabel>
                         <Popover>
                           <PopoverTrigger asChild>
                             <FormControl>
