@@ -1,4 +1,4 @@
-// Source for the phone number fields:
+// Reference for the phone number fields:
 // https://github.com/colinhacks/zod/issues/3378#issuecomment-2067591844
 
 import { patients } from "@/app/drizzle/schema";
