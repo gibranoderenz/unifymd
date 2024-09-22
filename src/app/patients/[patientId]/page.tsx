@@ -157,12 +157,12 @@ export default function PatientDataPage({
 
   return (
     <div className="flex justify-center gap-4" style={{ height: "80vh" }}>
-      <div className="flex flex-col gap-4 w-1/5">
+      <div className="flex flex-col gap-4 w-1/5 h-[80vh] overflow-auto">
         <div className="bg-[#F5F5F5] p-2 rounded-xl text-center">
           <span className="font-semibold">Patient Record</span>
         </div>
 
-        <div className="flex flex-col gap-4 bg-[#F8F3FF] p-6 rounded-xl">
+        <div className="relative flex flex-col gap-4 bg-[#F8F3FF] p-6 rounded-xl">
           {!!patient &&
             patient.records.map((r) => {
               return (
@@ -184,7 +184,9 @@ export default function PatientDataPage({
         </div>
         <Sheet>
           <SheetTrigger asChild>
-            <Button className="bg-[#381E72] rounded-xl">Add New Record</Button>
+            <Button className="bg-[#381E72] rounded-xl sticky bottom-0">
+              Add New Record
+            </Button>
           </SheetTrigger>
           <SheetContent className="flex flex-col gap-4 overflow-auto">
             <SheetHeader>
@@ -466,12 +468,64 @@ export default function PatientDataPage({
           </SheetContent>
         </Sheet>
       </div>
-      <div className="flex flex-col gap-4 w-2/3">
-        <div className="p-4 rounded-xl bg-[#F5F5F5]">
-          <h1 className="text-2xl font-bold">
-            {patient?.firstName} {patient?.lastName}
-          </h1>
+      <div className="flex flex-col gap-4 w-2/3 h-[80vh] overflow-auto">
+        <div className="flex flex-col gap-4 p-4 rounded-xl bg-[#F5F5F5]">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold">
+              {patient?.firstName} {patient?.lastName}
+            </h1>
+            <div className="flex items-center justify-center gap-8">
+              <div className="flex flex-col items-center justify-center">
+                <span className="font-semibold">Phone Number</span>
+                <span>{patient?.phoneNumber}</span>
+              </div>
+
+              <div className="flex flex-col items-center justify-center">
+                <span className="font-semibold">Emergency Contact</span>
+                <span>{patient?.emergencyContact}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col">
+                <span className="font-semibold">Email</span>
+                <span>{patient?.email}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold">Sex</span>
+                <span>{patient?.sex}</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-semibold">Allergies</span>
+                <span>{patient?.allergies}</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col">
+                <span className="font-semibold">History of family illness</span>
+                <span>{patient?.familyIllnessHistory}</span>
+              </div>
+
+              <div className="flex flex-col">
+                <span className="font-semibold">
+                  History of family symptoms
+                </span>
+                <span>{patient?.familySymptomsHistory}</span>
+              </div>
+
+              <div className="flex flex-col">
+                <span className="font-semibold">
+                  History of family symptoms
+                </span>
+                <span>{patient?.familySymptomsHistory}</span>
+              </div>
+            </div>
+          </div>
         </div>
+
         <div className="flex flex-col gap-4 bg-[#F8F3FF] p-4 rounded-xl">
           {!record ? (
             <span>Select a record to view its details.</span>
