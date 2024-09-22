@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UnifyMD
+UnifyMD is a unified health record system that aggregates patient data and historical health records. It features an AI-powered search bot that leverages a patient's historical data to help healthcare providers make more informed medical decisions with ease.
 
-## Getting Started
+## Features
+- **Unified Health Record System**: Aggregates patient data from various sources, such as previous medical records and treatments, into one unified platform
+- **AI-Powered Search Bot**: Allows doctors to quickly retrieve patient’s historical data by simply asking the search bot in natural language.
+- **Timeline View**: Displays the patient’s previous treatments and medications in a chronological format for easy tracking.
 
-First, run the development server:
+## Technologies Used
+- **[PropelAuth](https://www.propelauth.com/)**: Integrated for secure user authentication and user identity management.
+- **[LangChain](https://github.com/hwchase17/langchain)**: Large Language Model (LLM) framework that powers the AI search bot’s natural language processing capabilities.
+- **[OpenAI API](https://openai.com/api/)**: Provides the AI-powered search bot with data-driven responses based on the patient’s medical history.
+- **[Next.js](https://nextjs.org/)**: Used as the main framework for building the application, providing server-side rendering and full-stack capabilities.
+- **[Drizzle ORM](https://orm.drizzle.team/)**: An Object Relational Mapper used for seamless database interaction.
+- **[Supabase](https://supabase.com/)**: Used to store core patient data and records securely.
+- **[Shadcn UI](https://shadcn.dev/)**: For front-end components, providing an accessible and customizable UI.
+- **[TailwindCSS](https://tailwindcss.com/)**: CSS framework used for fast, responsive front-end styling.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Team Members
+Frank Richard Yambe Yabdi
+Gibrano Fabien Derenz Riswanto
+Mariana Salma Saraswati
+Noel Christoffel Simbolon
