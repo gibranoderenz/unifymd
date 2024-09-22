@@ -11,6 +11,7 @@ export const Chat = () => {
     { id: number; content: string; sender: "user" | "ai" }[]
   >([]);
   const [currentMessage, setCurrentMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const sendMessage = async () => {
     setMessages((prev) => [
       ...prev,
@@ -18,6 +19,7 @@ export const Chat = () => {
     ]);
 
     try {
+      setIsLoading(true);
       const response = await fetch("/api/bot", {
         method: "POST",
         body: JSON.stringify({ message: currentMessage }),
@@ -31,11 +33,13 @@ export const Chat = () => {
       }
     } catch {
       toast("An error occurred while asking UnifyMD. Try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
   return (
-    <div className="relative flex flex-col justify-between p-8 bg-[#F8F3FF] w-1/3 rounded-xl overflow-auto h-[80vh]">
-      <div className="flex items-center gap-2">
+    <div className="relative flex flex-col bg-[#F8F3FF] w-1/3 rounded-xl h-[80vh]">
+      <div className="flex items-center gap-2 p-8">
         <MdGrain
           size={22}
           className="bg-[#381E72] text-white rounded-full p-[2px]"
@@ -45,7 +49,7 @@ export const Chat = () => {
         </span>
       </div>
 
-      <div className="flex flex-col gap-4 py-8">
+      <div className="flex flex-col gap-4 p-8 overflow-auto pb-24">
         {messages.map((message) => {
           return (
             <span
@@ -60,18 +64,27 @@ export const Chat = () => {
             </span>
           );
         })}
+        {isLoading && (
+          <div className="flex items-center justify-center gap-2 bg-gray-200 rounded-2xl w-fit p-3">
+            <div className="bg-gray-400 animate-bounce w-2 h-2 rounded-full" />
+            <div className="bg-gray-400 animate-bounce w-2 h-2 rounded-full" />
+            <div className="bg-gray-400 animate-bounce w-2 h-2 rounded-full" />
+          </div>
+        )}
       </div>
 
       <Input
+        value={currentMessage}
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             sendMessage();
+            setCurrentMessage("");
           }
         }}
         onChange={(e) => {
           setCurrentMessage(e.target.value);
         }}
-        className="bg-white rounded-2xl -bottom-5 sticky p-4"
+        className={`bg-white rounded-2xl bottom-4 py-6 w-[90%] self-center absolute`}
         placeholder="Search about this patient..."
       />
     </div>
